@@ -51,7 +51,7 @@ class Index extends Component
         if ($id) {
             $data = Category::find($id);
             $data->delete();
-            session()->flash('message', 'Category was deleted!');
+            session()->flash('trash-message', 'Category was deleted!');
         }
     }
 

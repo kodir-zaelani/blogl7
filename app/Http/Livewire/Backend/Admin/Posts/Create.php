@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Backend\Admin\Posts;
 
+use App\Models\Tag;
 use App\Models\Post;
 use Livewire\Component;
 use App\Models\Category;
@@ -11,14 +12,14 @@ class Create extends Component
 {
     use WithFileUploads;
     
-    // public $categories;
     public $title;
     public $slug;
     public $excerpt;
     public $body;
     public $category_id;
-    public $tags;
     public $image;
+    public $post_tags;
+    public $published_at;
 
     /**
      * store function
@@ -32,6 +33,7 @@ class Create extends Component
             'body'          => 'required',
             'category_id'   => 'required',
             'published_at'     => 'required',
+            'post_tags'     => 'required',
             
         ]);
 
@@ -58,9 +60,10 @@ class Create extends Component
 
     public function render()
     {
-        $categories = Category::orderBy('title', 'asc')->get();
+        $categories   = Category::orderBy('title', 'asc')->get();
+        $tags         = Tag::orderBy('name', 'asc')->get();
         
-        return view('livewire.backend.admin.posts.create', compact('categories'));
+        return view('livewire.backend.admin.posts.create', compact('categories','tags'));
 
         
     }

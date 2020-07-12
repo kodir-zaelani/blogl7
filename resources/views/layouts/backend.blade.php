@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>@yield('title', 'Admin - Web Blog')</title>
-
+  <title>@yield('title', 'Admin')</title>
+  <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('/uploads/images/logo/favicon.png') }}">	
   <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('/assets/adminlte30/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Ionicons -->
@@ -35,16 +36,17 @@
 </div>
 <!-- ./wrapper -->
 
+<livewire:scripts />
 <!-- jQuery -->
-    <script src="{{ asset('/assets/adminlte30/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('/assets/adminlte30/plugins/jquery/jquery-3.5.1.min.js') }}"></script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('/assets/adminlte30/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- SweetAlert2 -->
     <script src="{{ asset('/assets/adminlte30/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-    @stack('footer-script')
     <!-- Toastr -->
+    <link rel="stylesheet" href="{{ asset('/assets/adminlte30/plugins/toastr/toastr.min.js') }}">
     <!-- AdminLTE App -->
-    <script src="{{ asset('/assets/adminlte30/dist/js/adminlte.min.js') }}"></script>
-<livewire:scripts />
+    <script src="{{ asset('/assets/adminlte30/dist/js/adminlte.js') }}"></script>
+    @stack('footer-script')
 </body>
 </html>

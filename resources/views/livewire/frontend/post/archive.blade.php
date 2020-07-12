@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <!-- Bread Title -->
                     <div class="bread-title">
-                        <h2>Latest Post</h2>
+                        <h2>Archive Post</h2>
                     </div>
                     <!-- Bread List -->
                     <ul class="bread-list">
@@ -28,10 +28,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-12">
-                    <div class="alert alert-info">
-                        {{--  <livewire:frontend.post.alert />  --}}
-                        <p>Post <strong>Archive</strong></p>
-                    </div>
+                    
                     <div class="row">
                         @foreach ($posts as $post)
                         <div class="col-lg-6 col-md-6 col-12">

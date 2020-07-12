@@ -32,6 +32,20 @@
                                 <h3 class="card-title">Category List</h3>
                             </div>
                             <div class="card-body">
+                                
+                                <div class="row">
+                                    <div class="col">
+                                        <select wire:model="perPage" id="" class="form-control form-control-sm w-auto" name="">
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="20">20</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <input wire:model.debounce.600ms="term" class="form-control form-control-sm" type="text" name="" placeholder="Search">
+                                    </div>
+                                </div>
+                                <hr>
                                 <div class="row">
                                     <div class="col">
                                         @if (session('message'))
@@ -55,19 +69,6 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <select wire:model="perPage" id="" class="form-control form-control-sm w-auto" name="">
-                                            <option value="5">5</option>
-                                            <option value="10">10</option>
-                                            <option value="20">20</option>
-                                        </select>
-                                    </div>
-                                    <div class="col">
-                                        <input wire:model.debounce.600ms="term" class="form-control form-control-sm" type="text" name="" placeholder="Search">
-                                    </div>
-                                </div>
-                                <hr>
                                 @if (!$categories->count())
                                 <div class="alert alert-danger">
                                     <strong>No record found</strong>

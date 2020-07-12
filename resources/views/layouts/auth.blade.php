@@ -5,43 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login - Console</title>
-    <link rel="shortcut icon" href="{{ asset('images/basket.png') }}" type="image/x-icon"/>
-    <!-- CSS only -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">    
+    <title>@yield('title', 'Login')</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('/uploads/images/logo/favicon.png') }}">	
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('/assets/adminlte30/plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="{{ asset('/assets/adminlte30/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="{{ asset('/assets/adminlte30/plugins/toastr/toastr.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('/assets/adminlte30/dist/css/adminlte.min.css') }}">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <livewire:styles/>
-    <livewire:scripts/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="{{ mix('js/app.js') }}"></script>    
-    <style>
-        body{
-            font-family: 'Quicksand', sans-serif;
-        }
-    </style>
 </head>
 
-<body style="background-color: #e2e8f0;">
-
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="text-center mb-4">
-                    <img src="{{ asset('images/basket.png') }}" style="width: 100px;background-color: #fff;border-radius: 50%;padding: 8px;">
-                    <h3 class="font-weight-bold mt-2">KREASI STORE</h3>
-                </div>
-                @yield('content')
-            </div>
-        </div>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        @yield('content')
     </div>
-    
+    <livewire:scripts/>
+    <!-- jQuery -->
+    <script src="{{ asset('/assets/adminlte30/plugins/jquery/jquery-3.5.1.min.js') }}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{{ asset('/assets/adminlte30/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- Toastr -->
+    <link rel="stylesheet" href="{{ asset('/assets/adminlte30/plugins/toastr/toastr.min.js') }}">
+    <!-- AdminLTE App -->
+    <script src="{{ asset('/assets/adminlte30/dist/js/adminlte.js') }}"></script> 
     <script>
         @if(session()->has('success'))
             toastr.success('{{ session('success') }}')

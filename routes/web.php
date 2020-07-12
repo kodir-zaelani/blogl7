@@ -32,23 +32,37 @@ Route::group(['layout' => 'layouts.frontend'], function () {
     });
 });
 
-//home backend
+
+
+// backend
 Route::prefix('backend')->group(function () {
+    Route::group(['middleware' => 'guest'], function(){
+        //login page
+        Route::livewire('/login', 'backend.admin.login')->layout('layouts.auth')->name('backend.login');
+        //logout page
+        Route::livewire('/logout', 'backend.admin.logout')->layout('layouts.backend')->name('backend.logout');
+    });
+    
+    //home backend
     Route::group(['layout' => 'layouts.backend'], function() {
-        Route::livewire('/dashboard', 'backend.admin.dashboard.index')->name('dashboard.index');
-        Route::livewire('/categories', 'backend.admin.categories.index')->name('categories.index');
-        Route::livewire('/categories/create', 'backend.admin.categories.create')->name('categories.create');
-        Route::livewire('/categories/edit/{id}', 'backend.admin.categories.edit')->name('categories.edit');
-        Route::livewire('/categories/destroy/{id}', 'backend.admin.categories.destroy')->name('categories.destroy');
-        Route::livewire('/tags', 'backend.admin.tags.index')->name('tags.index');
-        Route::livewire('/tags/create', 'backend.admin.tags.create')->name('tags.create');
-        Route::livewire('/tags/edit/{id}', 'backend.admin.tags.edit')->name('tags.edit');
-        Route::livewire('/tags/destroy/{id}', 'backend.admin.tags.destroy')->name('tags.destroy');
-        Route::livewire('/posts', 'backend.admin.posts.index')->name('posts.index');
-        Route::livewire('/posts/create', 'backend.admin.posts.create')->name('posts.create');
-        Route::livewire('/posts/edit/{id}', 'backend.admin.posts.edit')->name('posts.edit');
-        Route::livewire('/posts/destroy/{id}', 'backend.admin.posts.destroy')->name('posts.destroy');
+        Route::group(['middleware' => 'auth'], function(){
+            Route::livewire('/dashboard', 'backend.admin.dashboard.index')->name('dashboard.index');
+            Route::livewire('/categories', 'backend.admin.categories.index')->name('categories.index');
+            Route::livewire('/categories/create', 'backend.admin.categories.create')->name('categories.create');
+            Route::livewire('/categories/edit/{id}', 'backend.admin.categories.edit')->name('categories.edit');
+            Route::livewire('/categories/destroy/{id}', 'backend.admin.categories.destroy')->name('categories.destroy');
+            Route::livewire('/tags', 'backend.admin.tags.index')->name('tags.index');
+            Route::livewire('/tags/create', 'backend.admin.tags.create')->name('tags.create');
+            Route::livewire('/tags/edit/{id}', 'backend.admin.tags.edit')->name('tags.edit');
+            Route::livewire('/tags/destroy/{id}', 'backend.admin.tags.destroy')->name('tags.destroy');
+            Route::livewire('/posts', 'backend.admin.posts.index')->name('posts.index');
+            Route::livewire('/posts/create', 'backend.admin.posts.create')->name('posts.create');
+            Route::livewire('/posts/edit/{id}', 'backend.admin.posts.edit')->name('posts.edit');
+            Route::livewire('/posts/destroy/{id}', 'backend.admin.posts.destroy')->name('posts.destroy');
+            });
     });
 });
 
-
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+ });
