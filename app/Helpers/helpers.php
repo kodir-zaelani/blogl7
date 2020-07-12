@@ -36,5 +36,5 @@ function TanggalID($format, $tanggal="now", $bahasa="id")
 
 
     // mengganti kata yang berada pada array en dengan array id, fr (default id)
-    return str_replace($en,$$bahasa,date($format,strtotime($tanggal)));
+    return str_replace($en,$bahasa,date($format,strtotime($tanggal)));
 }

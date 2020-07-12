@@ -52,7 +52,7 @@
                     <!-- Pagination -->
                     <div class="pagination-main text-center">
                         <ul class="pagination" style="padding:30px;">
-                            <a class="btn animate" href="{{ url('/all') }}">Read All Post </a>
+                            <a class="btn animate" href="{{ route('post.all') }}">Read All Post </a>
                         </ul>
                     </div>
                     <!--/ End Pagination -->

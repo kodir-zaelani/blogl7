@@ -11,7 +11,7 @@ class Create extends Component
 {
     use WithFileUploads;
     
-    public $categories;
+    // public $categories;
     public $title;
     public $slug;
     public $excerpt;
@@ -58,13 +58,9 @@ class Create extends Component
 
     public function render()
     {
-        // $categories = Category::latest()->get();
+        $categories = Category::orderBy('title', 'asc')->get();
         
-        // return view('livewire.backend.admin.posts.create', compact('categories'));
-
-        return view('livewire.backend.admin.posts.create', [
-            'categories' => Category::all(),
-        ]);
+        return view('livewire.backend.admin.posts.create', compact('categories'));
 
         
     }

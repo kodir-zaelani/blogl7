@@ -61,9 +61,9 @@
                                 <div class="navbar-collapse">	
                                     <div class="nav-inner">	
                                         <ul class="nav main-menu navbar-nav">
-                                            <li {{ Request::path() === 'post' ? 'bg-primary' : '' }} ><a href="/"><i class="fa fa-home"></i></a>
+                                            <li {{ Request::path() === 'post' ? 'bg-primary' : '' }} ><a href="{{ route('root') }}"><i class="fa fa-home"></i></a>
                                             </li>	
-                                            <li><a href="/all">Blog</a>
+                                            <li><a href="{{ route('post.all') }}">Blog</a>
                                             </li>
                                             <li><a href="#">Links<i class="fa fa-angle-down"></i></a>
                                                 <ul class="dropdown">

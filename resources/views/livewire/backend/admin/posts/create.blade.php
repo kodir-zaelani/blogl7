@@ -116,12 +116,9 @@
                         <select class="select2 form-control @error('category_id') is-invalid @enderror"
                         wire:model.lazy="category_id">
                         <option value="">-- select category --</option>
-                        @foreach ($categories as $item)
-                            
-                        @endforeach
-                        {{--  @foreach ($categories as $category)
+                        @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->title }}</option>
-                        @endforeach  --}}
+                        @endforeach
                         </select>
                         @error('category_id')
                         <span class="invalid-feedback" role="alert">

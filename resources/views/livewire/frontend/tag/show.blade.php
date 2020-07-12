@@ -25,6 +25,7 @@
             <div class="row">
                 <div class="col-lg-9 col-12">
                     <div class="alert alert-info">
+                        {{--  <livewire:frontend.post.alert />  --}}
                         <p>Tag name: <strong>{{ $tag_name}}</strong></p>
                     </div>
                     <div class="row">

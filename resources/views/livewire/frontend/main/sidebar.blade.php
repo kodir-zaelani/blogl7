@@ -3,7 +3,7 @@
     <div class="blog-sidebar">
         <!-- Blog Category -->
         <div class="single-sidebar categorys">
-            <h2>Blog Category</h2>
+            <h2>Category Post </h2>
             <ul>
                 @foreach ($categories as $category)
                 <li>
@@ -18,7 +18,7 @@
         <div class="single-sidebar post-tab">
             <!-- Tab Nav -->
             <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" ><a class="nav-link active" data-toggle="tab" href="#popular" role="tab" >Popular</a></li>
+                <li class="nav-item" ><a class="nav-link active" data-toggle="tab" href="#popular" role="tab" >Popular Post</a></li>
                 {{-- <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#recent" role="tab">Recent</a></li>
                 <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#featured" role="tab">Featured</a></li> --}}
             </ul>
@@ -79,7 +79,35 @@
                 <!--/ End Popular Posts -->
             </div>
         </div>
-        <!--/ End Post Tab -->
+        <!--/ End Post Popular Tab -->
+        <!-- Blog Tags -->
+        <div class="single-sidebar tags">
+            <h2>Tags Post</h2>
+            <ul>
+                @foreach ($tags as $tag)
+                <li>
+                    <a href="{{ route('tag.show', $tag->slug) }}" class="btn btn-med-grey">
+                        {{ $tag->name }}
+                    </a>
+                </li>
+                @endforeach		
+            </ul>
+        </div>
+        <!--/ End Blog Tags -->
+        <!-- Blog Archives -->
+        <div class="single-sidebar categorys">
+            <h2>Archives Post</h2>
+            <ul>
+                @foreach ($archives as $archive)
+                <li>
+                    <a href="{{ route('post.archive', ['month' => $archive->month, 'year' => $archive->year]) }}">{{ month_name($archive->month) . " " . $archive->year }}</a>
+                    <span class="badge pull-right">{{ $archive->post_count }}</span>
+                </li>
+                @endforeach			
+            </ul>
+        </div>
+        <!--/ End Blog Archives -->
+
         <!-- Photo Gallery -->
         <div class="single-sidebar photo">
             <h2>Photo Gallery</h2>
@@ -96,20 +124,7 @@
             </ul>
         </div>
         <!--/ End Photo Gallery -->
-        <!-- Blog Tags -->
-        <div class="single-sidebar tags">
-            <h2>Tags</h2>
-            <ul>
-                @foreach ($tags as $tag)
-                <li>
-                    <a href="{{ route('tag.show', $tag->slug) }}" class="btn btn-med-grey">
-                        {{ $tag->name }}
-                    </a>
-                </li>
-                @endforeach		
-            </ul>
-        </div>
-        <!--/ End Blog Tags -->
+        
         <!-- Subscribe -->
         <div class="single-sidebar subscribe">
             <h2>Newsletter</h2>

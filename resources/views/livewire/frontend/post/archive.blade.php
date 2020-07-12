@@ -1,5 +1,7 @@
 <div>
-    @section("title")Category @endsection
+    @section("title")Post Archive @endsection
+    {{-- @section("sub_title")Category @endsection --}}
+    
     <!-- Breadcrumbs -->
     <section class="breadcrumbs overlay bg-image">
         <div class="container">
@@ -7,26 +9,28 @@
                 <div class="col-12">
                     <!-- Bread Title -->
                     <div class="bread-title">
-                        <h2>Category</h2>
+                        <h2>Latest Post</h2>
                     </div>
                     <!-- Bread List -->
                     <ul class="bread-list">
                         <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
-                        <li><a href="/all"><i class="fa fa-clone"></i>Blog</a></li>
-                        <li class="active"><a href="#"><i class="fa fa-clone"></i>Category Post</a></li>
+                        <li><a href="#"><i class="fa fa-clone"></i>Blog</a></li>
+                        <li class="active"><a href="#"><i class="fa fa-clone"></i>All Post</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
     <!--/ End Breadcrumbs -->
+    
+    <!-- Blog Archive -->
     <section class="blogs grid-sidebar archive section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-12">
-                    <div class="alert alert-info col">
-                         {{-- <livewire:frontend.main.alert /> // belum jalan --}}
-                        <p>Category: <strong>{{ $category_title}}</strong></p>
+                    <div class="alert alert-info">
+                        {{--  <livewire:frontend.post.alert />  --}}
+                        <p>Post <strong>Archive</strong></p>
                     </div>
                     <div class="row">
                         @foreach ($posts as $post)
@@ -64,11 +68,12 @@
                         <div class="col-12 ">
                             <!-- Pagination -->
                             <div class="pagination-main" style="padding:30px;">
-                                {{$posts->appends(Request::all('vendor.pagination.bootstrap-4'))->links()}}
+                                {{$posts->appends(Request::all())->links()}}
+                                {{--  {{$posts->appends(Request::all('vendor.pagination.bootstrap-4'))->links()}}  --}}
                             </div>
                             <!--/ End Pagination -->
                         </div>
-                    </div>
+                    </div>	
                 </div>
                 <div class="col-lg-3 col-12">
                     <livewire:frontend.main.sidebar></livewire:frontend.main.sidebar>
@@ -76,4 +81,9 @@
             </div>
         </div>
     </section>
-</div>
+    <!--/ End Blog Archive -->
+    <!-- Newsletter -->
+    {{--  <livewire:main.newsletter></livewire:main.newsletter>  --}}
+    <!--/ End Newsletter -->
+    </div>
+    

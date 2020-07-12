@@ -28,7 +28,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-12">
-                    {{--  @include('frontend.kz.alert')  --}}
                     <div class="row">
                         @foreach ($posts as $post)
                         <div class="col-lg-6 col-md-6 col-12">

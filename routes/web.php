@@ -20,13 +20,16 @@ use Illuminate\Support\Facades\Route;
 //frontend
 Route::group(['layout' => 'layouts.frontend'], function () {
     Route::livewire('/', 'frontend.home.index')->name('root');
-    Route::livewire('/all', 'frontend.post.all')->name('post.all');
-    Route::livewire('/search', 'frontend.post.search')->name('post.search');
-    Route::livewire('/show/{post}', 'frontend.post.show')->name('post.show');
+    Route::livewire('/about', 'frontend.about.index')->name('about.index');
     Route::livewire('/category/{slug}', 'frontend.category.show')->name('category.show');
     Route::livewire('/author/{slug}', 'frontend.author.show')->name('author.show');
     Route::livewire('/tag/{slug}', 'frontend.tag.show')->name('tag.show');
-    Route::livewire('/about', 'frontend.about.index')->name('about.index');
+    Route::prefix('posts')->group(function () {
+        Route::livewire('/all', 'frontend.post.all')->name('post.all');
+        Route::livewire('/archive', 'frontend.post.archive')->name('post.archive');
+        Route::livewire('/search', 'frontend.post.search')->name('post.search');
+        Route::livewire('/detail/{post}', 'frontend.post.show')->name('post.show');
+    });
 });
 
 //home backend

@@ -10,7 +10,7 @@ use App\Models\Post;
 use App\Models\Category;
 use Livewire\WithPagination;
 
-class All extends Component
+class Archive extends Component
 {
     use WithPagination;
     public $perPage = 6;
@@ -32,7 +32,7 @@ class All extends Component
                             ->published()
                             ->filter(request()->only(['term', 'year', 'month']))
                             ->paginate($this->perPage);
-            return view('livewire.frontend.post.all', compact('posts'));
+            return view('livewire.frontend.post.archive', compact('posts'));
         } catch (\Throwable $th) {
             //throw $th;
             return abort(404);

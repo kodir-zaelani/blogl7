@@ -33,26 +33,19 @@ class Show extends Component
         $category = Category::where('slug', $this->segment)->first();
 
         try {
-            //code...
-            if($category) {
+            $this->category_title    = $category->title;
 
-                $this->category_title    = $category->title;
-    
-                $posts = $category->posts()
-                // Post::where('category_id', $category->id)
-                        ->with('author', 'tags', 'comments')
-                        ->latestFirst()
-                        ->published()
-                        ->paginate($this->perPage);
-            }
+            $posts = $category->posts()
+            // Post::where('category_id', $category->id)
+                    ->with('author', 'tags', 'comments')
+                    ->latestFirst()
+                    ->published()
+                    ->paginate($this->perPage);
             
-            return view('livewire.frontend.category.show',[
-                'posts'          => $posts,
-                'category_title'    => $this->category_title
-            ]);
-        } catch (\Throwable $th) {
-            //throw $th;
-            return abort(404);
+            return view('livewire.frontend.category.show', compact('posts','category_title'));
+            } catch (\Throwable $th) {
+                //throw $th;
+                return abort(404);
         }
         
     }

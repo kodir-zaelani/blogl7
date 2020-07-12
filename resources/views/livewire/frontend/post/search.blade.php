@@ -28,7 +28,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-12">
-                    @include('frontend.kz.alert')
+                    <livewire:frontend.main.alert />
                     <div class="row">
                         @foreach ($posts as $post)
                         <div class="col-lg-6 col-md-6 col-12">
@@ -73,14 +73,14 @@
                     </div>	
                 </div>
                 <div class="col-lg-3 col-12">
-                    <livewire:frontend.main.sidebar></livewire:frontend.main.sidebar>
+                    <livewire:frontend.main.sidebar />
                 </div>
             </div>
         </div>
     </section>
     <!--/ End Blog Archive -->
     <!-- Newsletter -->
-    {{--  <livewire:main.newsletter></livewire:main.newsletter>  --}}
+    {{--  <livewire:main.newsletter />  --}}
     <!--/ End Newsletter -->
     </div>
     

@@ -25,7 +25,8 @@
             <div class="row">
                 <div class="col-lg-9 col-12">
                     <div class="alert alert-info">
-                        <p>Author name: <strong>{{ $author_name}}</strong></p>
+                        {{-- <livewire:frontend.main.alert /> --}}
+                         <p>Author name: <strong>{{ $author_name}}</strong></p> 
                     </div>
                     <div class="row">
                         @foreach ($posts as $post)
